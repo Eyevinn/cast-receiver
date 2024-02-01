@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ TITLE }}</title>
+    <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+    <script src="index.ts" type="module"></script>
+    <style type="text/css">
+      body {
+        {{ PLAYBACK_LOGO_IMAGE && `--playback-logo-image: url(${PLAYBACK_LOGO_IMAGE})` }}
+      }
+      cast-media-player {
+        {{ LOGO && `--logo-image: url(${LOGO});--logo-size: scale-down;` }}
+        {{ CAST_MEDIA_PLAYER_STYLE }}
+      }
+    </style>
+  </head>
+  <body>
+    <cast-media-player></cast-media-player>
+  </body>
+</html>

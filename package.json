@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "name": "@eyevinn/cast-receiver",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "eslint .",
+    "pretty": "prettier --check --ignore-unknown .",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "dev": "node --env-file=.env ./node_modules/parcel/lib/cli.js src/index.html --no-cache",
+    "build": "rm -rf dist/ &&  node --env-file=.env ./node_modules/parcel/lib/cli.js build src/index.html --no-cache",
+    "postversion": "git push && git push --tags"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.10.0"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@types/node": "^18.19.13",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "parcel": "^2.11.0",
+    "posthtml-expressions": "^1.11.3",
+    "prettier": "^2.8.4",
+    "@types/chromecast-caf-receiver": "^6.0.13",
+    "typescript": "^5.3.3"
+  }
+}
