@@ -20,7 +20,7 @@ You configure the Cast Receiver by setting environment variables. The following 
 - `CAST_RECEIVER_OPTIONS` - JSON of the options for the cast receiver, this can override recommended defaults. For a full list of options see [docs](https://developers.google.com/cast/docs/reference/web_receiver/cast.framework.CastReceiverOptions)
 - `PLAYBACK_LOGO_IMAGE` - URL to the playback logo image. See [docs](https://developers.google.com/cast/docs/web_receiver/customize_ui#playback_logo)
 - `LOGO` - URL to your logo image.
-- `CAST_MEDIA_PLAYER_STYLE` - Gives you full access to style the `cast-media-player` element. See [docs](https://developers.google.com/cast/docs/web_receiver/customize_ui). Note this may override other ENV variables that may set style options, eg. `LOGO`
+- `CAST_MEDIA_PLAYER_STYLE` - Gives you full access to style the `cast-media-player` element. See [docs](https://developers.google.com/cast/docs/web_receiver/customize_ui). Note this may override other ENV variables that may set style options, eg. `LOGO`. The format is [[style, value]] eg. `[["--splash-image", "url(https://github.com/eyevinn.png"], ["--splash-size", "contain"]]`
 
 ### Node
 
