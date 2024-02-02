@@ -22,6 +22,7 @@ WORKDIR /app
 COPY . .
 
 RUN npm ci
+RUN touch .env
 
 # Replace default PORT with the one passed in
 RUN sed -i "s/listen\s*80;/listen $PORT;/" /etc/nginx/conf.d/default.conf
