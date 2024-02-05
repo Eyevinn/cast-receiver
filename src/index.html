@@ -11,7 +11,7 @@
         {{ PLAYBACK_LOGO_IMAGE && `--playback-logo-image: url(${PLAYBACK_LOGO_IMAGE})` }}
       }
       cast-media-player {
-        {{ LOGO && `--logo-image: url(${LOGO});--logo-size: scale-down;` }}
+        {{ LOGO && `--logo-image: url(${LOGO});--logo-size: contain;` }}
         {{ CAST_MEDIA_PLAYER_STYLE }}
       }
     </style>
