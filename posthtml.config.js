@@ -3,42 +3,47 @@
  */
 function getCastMediaPlayerStyle(env) {
   if (!env) {
-    return env;
+    return '';
   }
-  /**
-   * @type {(string[])[]}
-   */
-  let arr;
   try {
-    arr = JSON.parse(env);
+    /**
+     * @type {(string[])[]}
+     */
+    let arr;
+    try {
+      arr = JSON.parse(env);
+    } catch (e) {
+      throw new Error(
+        `Invalid CAST_MEDIA_PLAYER_STYLE ${JSON.stringify(
+          env
+        )}, must be in format [[style, value]]`
+      );
+    }
+    if (!Array.isArray(arr)) {
+      throw new Error(
+        `Invalid CAST_MEDIA_PLAYER_STYLE ${JSON.stringify(
+          arr
+        )}, must be in format [[style, value]]`
+      );
+    }
+    return (
+      arr
+        .flatMap((entry) => {
+          if (!Array.isArray(entry) || entry.length !== 2) {
+            throw new Error(
+              `Invalid CAST_MEDIA_PLAYER_STYLE entry ${JSON.stringify(
+                entry
+              )}, each entry must be [style, value]`
+            );
+          }
+          return entry.join(':');
+        })
+        .join(';') + ';'
+    );
   } catch (e) {
-    throw new Error(
-      `Invalid CAST_MEDIA_PLAYER_STYLE ${JSON.stringify(
-        env
-      )}, must be in format [[style, value]]`
-    );
+    console.error(e);
+    return '';
   }
-  if (!Array.isArray(arr)) {
-    throw new Error(
-      `Invalid CAST_MEDIA_PLAYER_STYLE ${JSON.stringify(
-        arr
-      )}, must be in format [[style, value]]`
-    );
-  }
-  return (
-    arr
-      .flatMap((entry) => {
-        if (!Array.isArray(entry) || entry.length !== 2) {
-          throw new Error(
-            `Invalid CAST_MEDIA_PLAYER_STYLE entry ${JSON.stringify(
-              entry
-            )}, each entry must be [style, value]`
-          );
-        }
-        return entry.join(':');
-      })
-      .join(';') + ';'
-  );
 }
 
 module.exports = {
